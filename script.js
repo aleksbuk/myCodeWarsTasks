@@ -978,40 +978,70 @@ let fakeBin3 = x => x.split('').map(e => e < 5 ? 0 : 1).join('');
 
 console.log(fakeBin3(555563656))
  */
-/*
-function areaLargestSquare(r) {
-    let a = r * r
-    return a * 2
+//
+// function areaLargestSquare(r) {
+//     let a = r * r
+//     return a * 2
+//
+// }
+// const areaLargestSquare = r = (r * r) * 2
 
+/*String ends with?
+Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+Examples:
+solution('abc', 'bc') // returns true
+solution('abc', 'd') // returns false
+
+function solution(str, ending) {
+    return str.endsWith(ending);
 }
-const areaLargestSquare = r = (r * r) * 2
+console.log(solution('abc', 'bc'));
 
  */
 
-/*Number of Decimal Digits
-function digits(n) {
-    let res = n.toString().split('')
-    let digitsRes = res.length
-    return digitsRes
-}
+/*Simple multiplication
+This kata is about multiplying a given number by eight if it is an even number and by nine otherwise.
 
-function digits(n) {
-    return n.toString().length;
-}
+const simpleMultiplication = number => number % 2 === 0 ? number * 8 : number * 9;
 
-console.log(digits(9));
-console.log(digits(95));
-console.log(digits(999));
-console.log(digits(91520));
+
+console.log(simpleMultiplication(9));
+console.log(simpleMultiplication(10));
+console.log(simpleMultiplication(8));
+console.log(simpleMultiplication(5));
 
  */
-/*Remove String Spaces
 
-function noSpace(x){
-  let arr = x.split(' ').join('');
-    return arr
+/*String repeat
+Write a function called repeatStr which repeats the given string string exactly n times.
+repeatStr(6, "I") // "IIIIII"
+repeatStr(5, "Hello") // "HelloHelloHelloHelloHello"
+
+function repeatStr (n, s) {
+    return s.repeat(n)
 }
-//advance
-const noSpace = x =>  x.split(' ').join('');
-console.log(noSpace('w o rd'));
+
+ */
+
+/*Student's Final Grade
 */
+
+
+function finalGrade (exam, projects) {
+    if (exam >= 90 || projects >= 10){
+        return 100
+    } else if (exam > 75 && projects >= 5){
+        return 90
+    } else if (exam > 50 && projects >= 2) {
+        return 75
+    } else return 0
+}
+
+const finalGrade1 = (exam, projects) => {
+    if (exam > 90 || projects > 10) return 100
+    if (exam > 75 && projects >= 5) return 90
+    if (exam > 50 && projects >= 2) return 75
+
+    return 0
+}
+console.log(finalGrade(90, 0));
