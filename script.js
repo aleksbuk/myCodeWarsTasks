@@ -1024,24 +1024,149 @@ function repeatStr (n, s) {
  */
 
 /*Student's Final Grade
+
+//
+//
+// function finalGrade (exam, projects) {
+//     if (exam >= 90 || projects >= 10){
+//         return 100
+//     } else if (exam > 75 && projects >= 5){
+//         return 90
+//     } else if (exam > 50 && projects >= 2) {
+//         return 75
+//     } else return 0
+// }
+//
+// const finalGrade1 = (exam, projects) => {
+//     if (exam > 90 || projects > 10) return 100
+//     if (exam > 75 && projects >= 5) return 90
+//     if (exam > 50 && projects >= 2) return 75
+//
+//     return 0
+// }
+// console.log(finalGrade(90, 0));
 */
 
+/* Switch it Up!
+When provided with a number between 0-9, return it in words.
 
-function finalGrade (exam, projects) {
-    if (exam >= 90 || projects >= 10){
-        return 100
-    } else if (exam > 75 && projects >= 5){
-        return 90
-    } else if (exam > 50 && projects >= 2) {
-        return 75
-    } else return 0
+Input :: 1
+
+Output :: "One".
+
+
+
+function switchItUp(number){
+switch (number){
+    case 1: return "One";
+    case 2: return "Two";
+    case 3: return "Three";
+    case 4: return "Four";
+    case 5: return "Five";
+    case 6: return "Six";
+    case 7: return "Seven";
+    case 8: return "Eight";
+    case 9: return "Nine"
+  }
 }
 
-const finalGrade1 = (exam, projects) => {
-    if (exam > 90 || projects > 10) return 100
-    if (exam > 75 && projects >= 5) return 90
-    if (exam > 50 && projects >= 2) return 75
+const switchItUp = number =>
+    [`Zero`, `One`, `Two`, `Three`, `Four`, `Five`, `Six`, `Seven`, `Eight`, `Nine`][number];
 
-    return 0
+console.log(switchItUp(1));
+console.log(switchItUp(3));
+console.log(switchItUp(5));
+
+ */
+
+
+/* Thinkful - Logic Drills: Traffic light
+You're writing code to control your town's traffic lights. You need a function to handle each change from green, to yellow, to red, and then to green again.
+
+Complete the function that takes a string as an argument representing the current state of the light and returns a string representing the state the light should change to.
+
+For example, update_light('green') should return 'yellow'.
+
+Note: Use "" instead of '' in C++.
+
+
+
+function updateLight(current) {
+ if (current === 'green') {
+     return 'yellow'
+ } else if ( current === 'yellow') {
+     return 'red'
+ } else if ( current === 'red') {
+     return 'green'
+ }
 }
-console.log(finalGrade(90, 0));
+
+function updateLight1(current) {
+
+    return current === 'yellow' ? 'red' : current === 'green' ? 'yellow' : 'green';
+
+}
+
+ */
+
+/*Third Angle of a Triangle
+
+
+function otherAngle(a, b) {
+    let c = 180;
+    return c - (a + b)
+}
+
+const otherAngle1 = (a, b) => 180 - a - b
+
+ */
+
+
+/*Transportation on vacation
+
+
+
+function rentalCarCost(d) {
+    let dayPrice =  40;
+    if ( d >= 3 && d < 7) {
+        return dayPrice * d - 20
+    } else if (d >= 7) {
+        return dayPrice * d - 50
+    } else {
+        return d * dayPrice
+    }
+}
+
+
+const rentalCarCost = d => d * 40 - ((d > 6) ? 50 : ((d > 2) ? 20 : 0));
+
+// console.log(rentalCarCost(3));
+// console.log(rentalCarCost(4));
+// console.log(rentalCarCost(5));
+// console.log(rentalCarCost(6));
+console.log(rentalCarCost(7));
+// console.log(rentalCarCost(8));
+// console.log(rentalCarCost(9));
+
+ */
+
+
+/*Type of sum
+function typeOfSum(a, b) {
+    let sum = a + b
+    return typeof sum();
+}
+
+
+const typeOfSum = (a, b) => typeof(a + b);
+
+ */
+
+/*Will you make it?
+const zeroFuel = (distanceToPump, mpg, fuelLeft) =>  distanceToPump / mpg <= fuelLeft ? true : false
+
+
+console.log(zeroFuel(50, 25, 2));
+console.log(zeroFuel(100, 50, 1));
+
+ */
