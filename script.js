@@ -1170,3 +1170,40 @@ console.log(zeroFuel(50, 25, 2));
 console.log(zeroFuel(100, 50, 1));
 
  */
+
+
+/* human-readeble-namber*/
+
+function toReadable (number) {
+    let  strNum = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+    let strOfNumber = number.toString()
+     if(strOfNumber.length === 1) {
+         switch (number){
+             case 0: return "Zero"
+             case 1: return "One";
+             case 2: return "Two";
+             case 3: return "Three";
+             case 4: return "Four";
+             case 5: return "Five";
+             case 6: return "Six";
+             case 7: return "Seven";
+             case 8: return "Eight";
+             case 9: return "Nine"
+         }
+     } else if ( 1 < strOfNumber.length < 3) {
+         return `${strNum[i] }`
+     }
+
+
+}
+
+console.log(toReadable(0));
+console.log(toReadable(1));
+console.log(toReadable(2));
+console.log(toReadable(3));
+console.log(toReadable(4));
+console.log(toReadable(5));
+console.log(toReadable(6));
+console.log(toReadable(7));
+console.log(toReadable(8));
+console.log(toReadable(19));
