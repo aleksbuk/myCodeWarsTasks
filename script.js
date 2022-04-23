@@ -1,4 +1,3 @@
-
 // function generateShape(integer){
 //
 //     return Array(integer).fill(Array(integer+1).join('+')).join('\n')
@@ -110,9 +109,6 @@
 //  console.log(printMiddleCharacter(str))
 
 
-
-
-
 //     const toTitleCase = (str) => {
 //         return str
 //             .toLowerCase()
@@ -141,7 +137,6 @@
 // const str = "This website is for losers LOL!"
 //
 // console.log(disemvowel(str))
-
 
 
 /*Nickname Generator*/
@@ -345,7 +340,6 @@
 // function printMessage() {
 //     console.log('hello!')
 // }
-
 
 
 // for(var i = 0; i < 10; i++){
@@ -565,7 +559,6 @@ console.log(findShort('This is a largest exaompl'));
 
 
  */
-
 
 
 /* порахувати середній вік
@@ -1172,7 +1165,7 @@ console.log(zeroFuel(100, 50, 1));
  */
 
 
-/* human-readeble-namber*/
+/* human-readeble-namber
 
 function toReadable (number) {
     let  strNum = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
@@ -1207,3 +1200,567 @@ console.log(toReadable(6));
 console.log(toReadable(7));
 console.log(toReadable(8));
 console.log(toReadable(19));
+
+
+ */
+
+/* polyfill for FroEach*/
+
+
+// if(!Array.prototype.forEach) {
+//
+//     Array.prototype.forEach = function (callbackFunction) {
+//         for (let val of this) {
+//             callbackFunction(val)
+//         }
+//     }
+// }
+
+
+// function theSameForEach (arr, func) {
+//     for(let i = 0; i < arr.length; i++){
+//         func(arr[i])
+//     }
+// }
+//
+// // theSameForEach(arr, el =>)
+// // console.log(theSameForEach);
+//  let newArr = []
+//  array.forEach(el => newArr.push(el * 2))
+// console.log(newArr)
+//
+// let newFunc = theSameForEach(array, function(el) {console.log(el)})
+// console.log(newFunc);
+
+
+/* polyfil for Filter
+let newArr =  array.filter(function (el) {
+    return el > 3
+})
+console.log(newArr);
+
+
+    Array.prototype.costumFilter = function (callback) {
+        let newArray = []
+        for (let i = 0; i < this.length; i++){
+            if(callback(this[i])) {
+                newArray.push(this[i])
+            }
+        }
+        return newArray
+    }
+
+
+let newArr2 = array.costumFilter(function (el) {
+    return el > 3
+})
+console.log(newArr2)
+*/
+
+/*polyfill for Map
+
+array.map(function(el){
+    console.log(el + 1)
+})
+console.log('===========')
+
+Array.prototype.myOwnMap = function (callback){
+    let newArr = [];
+    for(let i = 0; i < this.length; i++){
+        newArr.push(callback(this[i]))
+    }
+    return newArr
+}
+
+array.myOwnMap(function (el){
+    console.log(el)
+})
+*/
+
+/* polyfill for ForEach
+
+array.forEach(function (el){
+   console.log(el + 1)
+})
+
+console.log('=======')
+
+Array.prototype.myOwnForEach = function (callback){
+    for( let i = 0; i < this.length; i++){
+        callback(this[i])
+    }
+}
+
+array.myOwnForEach(function (el) {
+    console.log( el + 2)
+})
+*/
+
+/*polyfill for Reduce
+
+let sumOfArr = array.reduce(function (total, cur ) {
+    return  total + cur
+})
+
+console.log(sumOfArr)
+console.log('================')
+
+Array.prototype.myOwnReduce = function (callback, initialValue){
+    let accumulator = initialValue === undefined ? undefined : initialValue;
+    for(let i = 0; i < this.length; i++) {
+        if(accumulator !== undefined) {
+            accumulator = callback.call(undefined, accumulator, this[i], i, this);
+        } else {
+            accumulator = this[i];
+        }
+    }
+    return accumulator
+}
+
+let sumOfArr1 = array.myOwnReduce(function (total, cur ) {
+    return  total + cur
+})
+
+console.log(sumOfArr1)
+
+ */
+
+/*sotr method
+arr = [5, 3, 2, 1, 6, 9, 7, 8]
+
+console.log(arr.sort(function (a, b){
+    return a - b;
+}))
+
+ */
+
+/*clouser
+
+
+ const createPhrase = (greetings) => {
+    return name => `${greetings} ${name}`
+ }
+ const seyHi = createPhrase('Hello')
+
+console.log(seyHi('Aleks'))
+
+
+ */
+
+
+// let array = [1, 2, 3, 4, 1, 2];
+
+/*polyfile forEach
+// es 6
+array.forEach(function (el) {
+    console.log(el)
+})
+console.log('=========')
+//polyfill
+Array.prototype.myCraftForEach = function (callback){
+    for( let i = 0; i < this.length; i++) {
+        callback(this[i])
+    }
+}
+
+array.myCraftForEach(function (el) {
+    console.log(el)
+})
+
+ */
+
+/*Polyfill Filter
+//es6
+let needNumber = array.filter(function (el){
+    return el > 2;
+})
+console.log(needNumber);
+
+//polyfill
+
+Array.prototype.myCraftFilter = function (callback) {
+    let newArr = [];
+    for( let i = 0; i < this.length; i++) {
+        if(callback(this[i])){
+            newArr.push(this[i])
+        }
+    }
+    return newArr
+}
+let needNumber2 = array.myCraftFilter(el => el > 2)
+console.log(needNumber2);
+ */
+
+/* Polyfill for Map
+//es6
+array.map(function (el){
+    console.log(el+ 1)
+})
+
+console.log('========')
+//polyfill
+
+Array.prototype.myCraftMap = function (callback){
+    let newArr = [];
+    for (let i = 0; i <this.length; i++){
+        newArr.push(callback(this[i]))
+    }
+}
+array.myCraftMap(function (el){
+    console.log(el + 5)
+})
+
+ */
+
+/*polyfill for Reduce
+//es6
+let sumOfArr = array.reduce(function (total, current){
+    return total + current
+})
+
+console.log(sumOfArr);
+
+//polyfill
+
+Array.prototype.myCraftReduce = function(callback, initialValue){
+    let accumulator = initialValue ===  undefined ? undefined : initialValue;
+    for( let i = 0; i < this.length; i++){
+        if ( accumulator !== undefined) {
+            accumulator = callback.call(undefined, accumulator, this[i], i,  this)
+        } else {
+            accumulator = this[i]
+        }
+    }
+    return accumulator
+}
+let sumOfArr2 = array.myCraftReduce(function (total, current){
+    return total + current
+})
+console.log(sumOfArr2);
+
+ */
+
+
+// const createPhrase = (greetings) => {
+//      return name => `${greetings} ${name}`
+// }
+// const seyHi =  createPhrase('Hello')
+//
+// console.log(seyHi('Aleks'))
+
+// let first = 1; let first = 2;
+// console.log(first)
+//
+// const first1 = 1, second = 2;
+//
+// console.log(first1, second)
+
+
+// let i = 0; let c = 0;
+// const str = 'Rolling Scopes School';
+// while (i < str.length) { if (str[i] === 'o') { c++; } i++; }
+// console.log(c);
+
+// for (let i = 0; i <= 4; i++)
+// {console.log(++i);}
+
+/*
+const simpleNum = ['zero','one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+const preTenthNum = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
+const tenthNum = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
+
+
+let res = (number) => {
+    let arr = number.toString().split('');
+    let secondNum = Number(arr[1])
+    console.log(secondNum)
+    const oneNumbers = () => {
+            switch (number) {
+                case 0: return simpleNum[0];
+                case 1: return simpleNum[1];
+                case 2: return simpleNum[2];
+                case 3: return simpleNum[3];
+                case 4: return simpleNum[4];
+                case 5: return simpleNum[5];
+                case 6: return simpleNum[6];
+                case 7: return simpleNum[7];
+                case 8: return simpleNum[8];
+                case 9: return simpleNum[9];
+            }
+        }
+    const preTenthNumbers = () => {
+
+        switch (number) {
+            case 10: return preTenthNum[0];
+            case 11: return preTenthNum[1];
+            case 12: return preTenthNum[2];
+            case 13: return preTenthNum[3];
+            case 14: return preTenthNum[4];
+            case 15: return preTenthNum[5];
+            case 16: return preTenthNum[6];
+            case 17: return preTenthNum[7];
+            case 18: return preTenthNum[8];
+            case 19: return preTenthNum[9];
+        }
+    }
+
+    const tenthNumbers = (number) => {
+        let tenthNumb = []
+        let array = number.toString().split('')
+        if(array[0] === '2') {
+            tenthNumb.push(`twenty ${oneNumbers(secondNum)}`)
+        }
+        return tenthNumb
+
+
+        // switch (number) {
+        //     case 21: return tenthNum[0]
+        //     case 23: return tenthNum[1]
+        //     case 24: return tenthNum[2]
+        //     case 25: return tenthNum[3]
+        //     case 26: return tenthNum[4]
+        //     case 27: return tenthNum[5]
+        //     case 28: return tenthNum[6]
+        //     case 29: return tenthNum[7]
+        // }
+    }
+     if( arr.length === 1 ) {
+         return oneNumbers()
+    }
+     if ( arr.length === 2 &&  arr[0] === '1') {
+        return preTenthNumbers()
+    }
+     if ( arr.length === 2 && arr[0] === '2') {
+        return tenthNumbers()
+    }
+
+}
+
+
+// console.log(res(1))
+// console.log(res(3))
+// console.log(res(15))
+console.log(res(24))
+console.log(res(34))
+
+ */
+
+/*
+arr5 = [1, 3, 5, 7, 9, 11, 12];
+arr6 = [1, 2, 3, 4, 5, 10, 12];
+arr1 = [1, 2, 3, 4, 5];
+arr2 = [6, 7, 8, 9, 10];
+
+function mergeArrays(arr1, arr2) {
+    let res = arr1.concat(arr2).sort((a, b) => b - a).reverse()
+    return Array.from(new Set(res))
+
+}
+
+
+console.log(mergeArrays(arr1, arr2));
+console.log(mergeArrays(arr5, arr6));
+*/
+/*
+function add(num1, num2) {
+
+    let a = num1.toString().split('').reverse().join('')
+    let b = num2.toString().split('').reverse().join('')
+    console.log(a, b)
+    if (a.length < b.length) {
+        [a, b] = [b, a]
+    }
+    let res = ''
+    for (let i = 0; i < a.length; i++) {
+        let num1 = parseInt(a[i])
+        let num2 = parseInt(b[i] || 0)
+        res = (num1 + num2).toString() + res
+    }
+
+    return parseInt(res)
+}
+
+console.log(add(2, 11));
+console.log('==============')
+console.log(add(0, 1));
+console.log('==============')
+console.log(add(0, 0));
+console.log('==============')
+console.log(add(16, 18));
+
+ */
+/*
+let questions = [{
+    question: "What's the currency of the USA?",
+    choices: ["US dollar", "Ruble", "Horses", "Gold"],
+    corAnswer: 0
+}, {
+    question: "Where was the American Declaration of Independence signed?",
+    choices: ["Philadelphia", "At the bottom", "Frankie's Pub", "China"],
+    corAnswer: 0
+}];
+
+ let res = questions.map(el => el.Active='false')
+console.log(res);
+ */
+
+//
+// function strCount(obj){
+//  let count = 0
+//     for(let i in obj) {
+//         if (typeof obj[i] === 'string') {
+//             count++
+//         }
+//     }
+//     return count
+// }
+//
+// let contObj = {
+//     first: "1",
+//     second: "2",
+//     third: false,
+//     fourth: ["anytime",2,3,4],
+//     fifth:  null
+// }
+//
+// console.log(strCount(contObj))
+
+/*
+let stringArray = ['Голубая', 'Горбатая', 'Белуга'];
+let numericStringArray = ['80', '9', '700'];
+let numberArray = [40, 1, 5, 200];
+let mixedNumericArray = ['80', '9', '700', 40, 1, 5, 200];
+
+function compareNumbers(a, b) {
+    return a - b;
+}
+
+// console.log('stringArray:', stringArray.join());
+//
+// console.log('sort: ', stringArray.sort())
+
+console.log('numberArray:', numberArray.join());
+console.log('sort:', numberArray.sort());
+console.log('Сортировка с функцией compareNumbers:', numberArray.sort(compareNumbers));
+
+ */
+
+// function abc() {
+//     console.log(this)
+//     console.log(3 + 5 / 2)
+//     this.style.background = 'red';
+// }
+//
+//
+//
+// document.querySelector('form').onclick = abc
+//
+// let p = document.querySelectorAll('p');
+//
+// p.forEach(function (el){
+//     el.onclick = abc
+// })
+
+
+let array = [
+    {
+        name: 'Ann',
+        age: 15
+    },
+    {
+        name: 'Bob',
+        age: 64
+    },
+    {
+        name: 'Jim',
+        age: 86
+    },
+    {
+        name: 'Mary',
+        age: 54
+    },
+    {
+        name: 'Alex',
+        age: 72
+    },
+    {
+        name: 'Dino',
+        age: 31
+    },
+
+];
+let secondArray = [
+    {
+        name: 'Ann',
+        age: 15
+    },
+    {
+        name: 'Bob',
+        age: 64
+    },
+    {
+        name: 'Jim',
+        age: 86
+    },
+    {
+        name: 'Mary',
+        age: 54
+    },
+    {
+        name: 'Alex',
+        age: 72
+    },
+    {
+        name: 'Dino',
+        age: 31
+    },
+
+];
+
+
+let sortArr = array.sort((a, b) => {
+    return a.age - b.age
+})
+
+let sortArrByName = secondArray.sort((a, b) => {
+    if (a.name < b.name) {
+        return -1
+    }
+    if (a.name > b.name) {
+        return 1
+    }
+    return 0
+})
+console.log(sortArr)
+
+console.log(sortArrByName);
+
+/* clouser
+
+
+let createPhrase = (greeting) => {
+    return name => `${greeting} ${name}`
+};
+
+const seyHi = createPhrase('hello')
+console.log(seyHi('Aleks'))
+
+ */
+
+let secondSortByAge = array.sort((a, b)=> {
+    return a.age - b.age
+})
+
+console.log(secondSortByAge)
+
+
+let sortByName = array.sort((a,b) => {
+    if(a.name < b.name) {
+        return -1
+    } if(a.name > b.name){
+        return 1
+    }
+    return 0
+})
+
+console.log(sortByName);
